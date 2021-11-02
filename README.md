@@ -63,7 +63,7 @@ rm  -f chrome-linux.zip
 7 回到刚刚创建的目录
 
 ```
-cd  /nolanjdc
+ cd ~/nolanjdc
 ```
 
 8拉镜像
@@ -75,9 +75,7 @@ sudo docker pull nolanhzy/nvjdc:0.3
 9启动镜像
 
 ```
-sudo docker run   --name nolanjdc -p 5701:80 -d  -v  "$(pwd)"/Config.json:/app/Config/Config.json:ro \
--v "$(pwd)"/.local-chromium:/app/.local-chromium  \
--it --privileged=true  nolanhzy/nvjdc:0.3 
+docker run   --name nolanjdc -p 5703:80 -d  -v  "$(pwd)"/Config.json:/app/Config/Config.json:ro \-v "$(pwd)"/.local-chromium:/app/.local-chromium  \-it --privileged=true  nolanhzy/nvjdc:0.3 
 ```
 
 10查看 日志 
