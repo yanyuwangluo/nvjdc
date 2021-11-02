@@ -63,7 +63,7 @@ rm  -f chrome-linux.zip
 7 回到刚刚创建的目录
 
 ```
-cd  /nolanjdc
+ cd ~/nolanjdc
 ```
 
 8拉镜像
@@ -75,9 +75,7 @@ sudo docker pull nolanhzy/nvjdc:0.3
 9启动镜像
 
 ```
-sudo docker run   --name nolanjdc -p 5701:80 -d  -v  "$(pwd)"/Config.json:/app/Config/Config.json:ro \
--v "$(pwd)"/.local-chromium:/app/.local-chromium  \
--it --privileged=true  nolanhzy/nvjdc:0.3 
+docker run   --name nolanjdc -p 5703:80 -d  -v  "$(pwd)"/Config.json:/app/Config/Config.json:ro \-v "$(pwd)"/.local-chromium:/app/.local-chromium  \-it --privileged=true  nolanhzy/nvjdc:0.3 
 ```
 
 10查看 日志 
@@ -114,7 +112,10 @@ cd /root/nolanjdc
 
 容器启动后第一次获取验证码的时候可能卡住刷新一下即可
 
-Config.json 是配置文件 可以热更新 修改后不用重启容器
+Config.json 是配置文件 修改后请重启容器
+```
+docker restart nolanjdc 
+```
 
 ## 最后
 觉得不错。回来帮我点个star
